@@ -2,6 +2,9 @@
 
 A simple implementation of Conway’s Game of Life in python, with an emphasis on intuitive code and ease rather than efficiency.
 
+[](../rpentomino.gif)
+
+
 Example usage:
 ```python
 animate_life(universe_size=(100, 100), seed='infinite', seed_position=(40, 40),
