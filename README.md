@@ -2,7 +2,9 @@
 
 A simple implementation of Conway’s Game of Life in python, with an emphasis on intuitive code and ease rather than efficiency.
 
-![](https://github.com/robertmartin8/PyGameofLife/blob/master/rpentomino.gif)
+<center>
+<img src="/rpentomino.gif" style="width:400px;"/>
+</center>
 
 
 Example usage:
