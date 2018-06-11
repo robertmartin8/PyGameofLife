@@ -131,7 +131,10 @@ if __name__ == "__main__":
         description="PyGameofLife. By default, produces 50 generations of the 'infinite' seed"
     )
     parser.add_argument(
-        "--universe-size", type=int, default=100, help="size of universe"
+        "--universe-size",
+        type=str,
+        default="100,100",
+        help="comma-separated dimensions of universe (x by y)",
     )
     parser.add_argument(
         "-seed", type=str, default="infinite", help="seed for Life, see readme for list"
@@ -153,10 +156,14 @@ if __name__ == "__main__":
         default="40,40",
         help="comma-separated coordinates of seed",
     )
+
     args = parser.parse_args()
 
     animate_life(
-        universe_size=(100, 100),
+        universe_size=(
+            int(args.universe_size.split(",")[0]),
+            int(args.universe_size.split(",")[1]),
+        ),
         seed=args.seed,
         quality=args.quality,
         cmap=args.cmap,
