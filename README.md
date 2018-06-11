@@ -1,5 +1,5 @@
 <p align="center">
-    <img width=50% src="https://github.com/robertmartin8/PyGameofLife/blob/master/media/logo.gif">
+    <img width=30% src="https://github.com/robertmartin8/PyGameofLife/blob/master/media/logo.gif">
 </p>
 
 <h1 align="center"> PyGameofLife </h1>
@@ -17,7 +17,7 @@
             alt="maintained"></a> &nbsp;
 </p>
 
-PyGameofLife is a simple implementation of Conway’s Game of Life in python, with a command-line interface that can generate pretty gifs. Emphasis is on simplicity and intuitive code.
+PyGameofLife is a simple implementation of Conway’s Game of Life in python, with a command-line interface that can generate pretty gifs. The source code emphasises simplicity and intuitive code rather than efficiency. A quick demo is shown here:
 
 ```bash
 python life.py -seed r_pentomino -n 500 -interval 50
@@ -27,7 +27,7 @@ python life.py -seed r_pentomino -n 500 -interval 50
     <img width=50% src="https://github.com/robertmartin8/PyGameofLife/blob/master/media/r_pentomino.gif">
 </p>
 
-# Contents
+# Contents
 
 - [Getting started](#getting-started)
 - [User guide](#user-guide)
@@ -53,7 +53,7 @@ git clone https://github.com/robertmartin8/PyGameofLife
 
 Move into the directory that was just created (either through your filesystem or with `cd PyGameofLife`), and you are ready to go!
 
-If you prefer to do things away from the command line, you can manually download it, unzip it, and move the folder somewhere convenient (preferably either the desktop or your home directory). Then, open up your command line, and `cd` to the correct directory. For example:
+If you don't want to use `git clone` for whatever reason, you can manually download it, unzip it, and move the folder somewhere convenient (preferably either the desktop or your home directory). Then, open up your command line, and `cd` to the correct directory. For example:
 
 ```bash
 cd Users/your_username/Desktop/PyGameofLife-master
@@ -93,7 +93,7 @@ PyGameofLife. By default, produces 50 generations of the 'infinite' seed
 optional arguments:
   -h, --help            show this help message and exit
   --universe-size UNIVERSE_SIZE
-                        size of universe
+                        comma-separated dimensions of universe (x by y)
   -seed SEED            seed for Life, see readme for list
   -n N                  number of universe iterations
   -quality QUALITY      image quality in DPI
@@ -103,7 +103,7 @@ optional arguments:
                         comma-separated coordinates of seed
 ```
 
-However, I wll present some of the different options along with animations.
+However, I wll present some of the different options along with animations below.
 
 ### The seed
 
@@ -168,7 +168,7 @@ python life.py -seed diehard
     <img width=50% src="https://github.com/robertmartin8/PyGameofLife/blob/master/media/infinite.gif">
 </p>
 
-If you'd like to add your own, the best way is to edit the source code and add your seed to the `seeds` dictionary at the top of `life.py`. By the way, if you try `boat` and it doesn't seem to be working, there's a [good reason](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
+If you'd like to add your own seed, the best way is to edit the source code and add it to the `seeds` dictionary at the top of `life.py`. By the way, if you try `boat` and it doesn't seem to be working, there's a [good reason](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life).
 
 If you'd like to change the starting position of the seed, you can specify the coordinates (comma separated `x` and `y`) where the top-left of the seed will be placed.
 
@@ -178,7 +178,7 @@ python life.py -seed diehard --seed-position 20,20
 
 ### Size and position
 
-By default, the size of the universe is 100x100. This is quite big relative to the size of most of the seeds, but is useful because many seed in Life produce quite expansive results. But say you want a nice picture of the beacon, which we know is roughly the shape of a 4x4 square. We therefore probably want a 6x6 universe, with the top-left of the seed pegged at coordinates (1,1), because indexing starts from 0 in python.
+By default, the size of the universe is 100x100. This is quite big relative to the size of most of the seeds, but is useful because many seeds in Life produce quite expansive results. But say you want a nice picture of the beacon, which we know is roughly the shape of a 4x4 square. We therefore probably want a 6x6 universe, with the top-left of the seed pegged at coordinates (1,1), because indexing starts from 0 in python.
 
 ```bash
 python life.py -seed beacon --universe-size 6,6  --seed-position 1,1
@@ -188,7 +188,7 @@ python life.py -seed beacon --universe-size 6,6  --seed-position 1,1
     <img width=50% src="https://github.com/robertmartin8/PyGameofLife/blob/master/media/beacon.gif">
 </p>
 
-As seen above, if you want to change the size of size of the grid, you **must** also specify the starting coordinates of the seed, otherwise you will probably get a nasty error.
+As seen above, if you want to change the size of size of the grid, you **must** also specify the coordinates of the seed, otherwise you will probably get a nasty error.
 
 ### Colours
 
@@ -207,14 +207,12 @@ python life.py -seed beacon -cmap plasma_r --universe-size 6,6  --seed-position 
 
 ### Animation paramaters
 
-The `-n` flag controls the number of iterations of Life that will produce the animation: the time taken to produce the animation grows linearly with the number of iterations.
-
-`-interval` is quite useful, and changes the rate at which Life iterates. In the simple example of the beacon, you could increase the flashing frequency by reducing the interval.
-
-Lastly, `-quality` dictates the image quality of the resulting animation. Be warned that higher DPI values greatly increase both the time taken to generate animations and the resulting fileszie.
+- The `-n` flag controls the number of iterations: the time taken to produce the animation grows linearly with the number of iterations.
+- `-interval` is quite useful, and changes the rate at which Life iterates. In the simple example of the beacon, you could increase the flashing frequency by reducing the interval.
+- Lastly, `-quality` dictates the image quality of the resulting animation. Be warned that higher DPI values greatly increase both the time taken to generate animations and the resulting fileszie.
 
 ## About
 
-This is just a quick project to demonstrate the versatility of matplotlib's animation functions. PyGameofLife definitely doesn't represent the most efficient solution, but the code is readable and intuitive.
+This is just a quick project to demonstrate the versatility of matplotlib's animation functions. PyGameofLife definitely doesn't present the most efficient solution, but the code is readable and intuitive (and arguably produces pretty output).
 
 For a write-up explaining a little bit more about how the code works, check out the related [article](https://reasonabledeviations.science/2017/06/10/conway-python/) on my website.
