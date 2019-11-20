@@ -31,10 +31,10 @@ python life.py -seed r_pentomino -n 500 -interval 50
 
 - [Getting started](#getting-started)
 - [User guide](#user-guide)
-    - [The seed](#the-seed)
-    - [Size and position](#size-and-position)
-    - [Colours](#colours)
-    - [Animation paramaters](#animation-paramaters)
+  - [The seed](#the-seed)
+  - [Size and position](#size-and-position)
+  - [Colours](#colours)
+  - [Animation paramaters](#animation-paramaters)
 - [About](#about)
 
 ## Getting started
@@ -215,4 +215,4 @@ python life.py -seed beacon -cmap plasma_r --universe-size 6,6  --seed-position 
 
 This is just a quick project to demonstrate the versatility of matplotlib's animation functions. PyGameofLife definitely doesn't present the most efficient solution, but the code is readable and intuitive (and arguably produces pretty output).
 
-For a write-up explaining a little bit more about how the code works, check out the related [article](https://reasonabledeviations.science/2017/06/10/conway-python/) on my website.
+For a write-up explaining a little bit more about how the code works, check out the related [article](https://reasonabledeviations.com/2017/06/10/conway-python/) on my website.
